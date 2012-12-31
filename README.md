@@ -31,3 +31,11 @@ Examples:
 <img src="http://spiritualtazer.com/images/beeple1.png" class="vid-lightbox" data-vimeo="46239685"/>
 <img src="http://spiritualtazer.com/images/xavi-thumbnail.png" class="vid-lightbox" data-image="http://spiritualtazer.com/images/xavi-full.png"/>
 ```
+
+http://spiritualtazer.com/bLightbox/example.html
+
+Todo
+====
+
+- Allow optional width and height parameters.
+- Style images with dropdown shadow to indicate they link off to a bLightbox.
