@@ -1,7 +1,7 @@
 bLightbox
 =========
 
-A minimalistic HTML5-ready lightbox which supports Youtube and Vimeo embedding and mobile devices.
+I was surprised after going through different lightbox solutions that I couldn't find a simple one that fit my very basic needs: show Youtube links and images in a mobile-friendly way, cross platform with modern browsers, iPhone and Android devices. So, here is bLightbox: a minimalistic HTML5-ready lightbox which supports Youtube and Vimeo embedding and mobile devices.
 
 Prerequisites
 =============
