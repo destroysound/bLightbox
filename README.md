@@ -24,7 +24,8 @@ Each bLightbox is expected to have one of the following data tags:
 
 Examples:
 
-```<img src="http://spiritualtazer.com/images/endo.png" class="vid-lightbox" data-video="AOihsC-WBDE"/>
+```HTML
+<img src="http://spiritualtazer.com/images/endo.png" class="vid-lightbox" data-video="AOihsC-WBDE"/>
 <img src="http://spiritualtazer.com/images/beeple1.png" class="vid-lightbox" data-vimeo="46239685"/>
 <img src="http://spiritualtazer.com/images/xavi-thumbnail.png" class="vid-lightbox" data-image="http://spiritualtazer.com/images/xavi-full.png"/>
 ```
