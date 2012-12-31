@@ -38,4 +38,5 @@ Todo
 ====
 
 - Allow optional width and height parameters.
+- Allow optional autoplay parameter.
 - Style images with dropdown shadow to indicate they link off to a bLightbox.
