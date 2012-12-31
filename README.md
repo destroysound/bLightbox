@@ -12,6 +12,8 @@ Prerequisites
 Usage
 =====
 
+See example.html, but basically:
+
 $(document).ready(function () {
   $(".vid-lightbox").blightbox();
 });
