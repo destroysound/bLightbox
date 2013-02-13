@@ -6,35 +6,75 @@
       // by default, consider this thing closed.
       this._isOpen = false;
 
-      $('body').append("<div id=\"inline1\" style=\"display: none;\"></div>");
 
-      $( "#inline1" ).dialog({
-          autoOpen: false,
-          modal: true,
-          resizable: false,
-          width: 640,
-          bgiframe: true,
-      open: function(event, ui) {
-        $('.ui-widget-overlay').bind('click', function(){
-          $("#inline1").dialog('close');
-          $("#inline1").html("");
-        }); }
-      });
-      $('#inline1').dialog('option', 'dialogClass', 'alert');
-      $( "#inline1" ).dialog('option', 'position', 'center');
+      var width = 640;
+      if ($(this.elementt).data("boxwidth")) {
+        width = $(this).data("boxwidth");
+      }
+
+      var height = 385;
+      if ($(this.element).data("boxheight")) {
+        height = $(this).data("boxheight");
+      }
+      $(this.element).addClass("vid-lightbox");
+
+      var autoplay = false;
+      if ('autoplay' in this.options) {
+        autoplay = true;
+      }
+
 
       $(this.element).click(function (element) {
+        $('body').prepend("<div style=\"position: absolute; top: 0px; left: 0px;\"><div id=\"inline1\" style=\"display: none;\"></div></div>");
+        var create_and_open_dialog = function () {
+
+          $( "#inline1" ).dialog({
+              autoOpen: false,
+              modal: true,
+              resizable: false,
+              width: width,
+              bgiframe: true,
+          open: function(event, ui) {
+            $('.ui-widget-overlay').bind('click', function(){
+              $("#inline1").dialog('close');
+              $("#inline1").remove();
+              $("#loading").remove();
+            }); }
+          });
+          $('#inline1').dialog('option', 'dialogClass', 'alert');
+          $('#inline1').dialog('option', 'position', ['center', 'center']);
+          $('#inline1').dialog('open');
+          $(window).resize(function() {
+            $("#inline1").dialog("option", "position", ['center', 'center']);
+          });
+        }
         if ($(this).data("vimeo")) {
-          $( "#inline1" ).html("<iframe src='http://player.vimeo.com/video/" + $(this).data("vimeo") + "' width='640' height='385' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>");
-          $("#inline1").dialog('open');
+          params = "";
+          if (autoplay) {
+            params = params + "autoplay=1";
+          }
+          $("#inline1").html("<iframe src='http://player.vimeo.com/video/" + $(this).data("vimeo") + "?" + params + "' width='" + width + "' height='" + height + "' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>");
+          create_and_open_dialog();
         }
         else if ($(this).data("video")) {
-           $( "#inline1" ).html("<iframe class='youtube-player' type='text/html' width='640' height='385' src='http://www.youtube.com/embed/" + $(this).data("video") + "' frameborder='0'></iframe>");
-          $("#inline1").dialog('open');
+          params = "";
+          if (autoplay) {
+            params = params + "autoplay=1";
+          }
+           $("#inline1").html("<iframe class='youtube-player' type='text/html' width='" + width + "' height='" + height + "' src='http://www.youtube.com/embed/" + $(this).data("video") + "?" + params + "' frameborder='0'></iframe>");
+          create_and_open_dialog();
         }
         else if ($(this).data("image")) {
-          $( "#inline1" ).html("<img id='lightboximage' src='" + $(this).data("image") + "' width='640' />");
-          $("#lightboximage").load($("#inline1").dialog('open'));
+          if ($(this).data("boxheight")) {
+            $("#inline1").html("<img id='lightboximage' src='" + $(this).data("image") + "' width='" + width + "' height='" + height + "' />");
+          }
+          else {
+            $("#inline1").html("<img id='lightboximage' src='" + $(this).data("image") + "' width='" + width + "' />");
+          }
+          $("#lightboximage").on("load", function () {
+            $("#inline1").dialog("option", "position", ['center', 'center']);
+            create_and_open_dialog();
+          });
         }
       });
 

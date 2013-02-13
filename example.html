@@ -7,14 +7,16 @@
   <script src="js/vid-lightbox.js"></script>
   <script>
     $(document).ready(function () {
-      $(".vid-lightbox").blightbox();
+      $(".blightbox").blightbox();
+      $(".blightbox-autoplay").blightbox({autoplay: true});
     });
   </script>
 </head>
 <body>
-<img src="http://spiritualtazer.com/images/endo.png" class="vid-lightbox" data-video="AOihsC-WBDE"/><br>MetaMystics - Psytrance visuals mix by VJ eNdo and DJ Aktif<br>
-<img src="http://spiritualtazer.com/images/beeple1.png" class="vid-lightbox" data-vimeo="46239685"/><br>Beeple - Subspace<br>
-<img src="http://spiritualtazer.com/images/xavi-thumbnail.png" class="vid-lightbox" data-image="http://spiritualtazer.com/images/xavi-full.png"/><br>Art by Xavi<br>
+<img src="http://spiritualtazer.com/images/endo.png" class="blightbox" data-video="AOihsC-WBDE"/><br>MetaMystics - Psytrance visuals mix by VJ eNdo and DJ Aktif<br>
+<img src="http://spiritualtazer.com/images/beeple1.png" class="blightbox-autoplay" data-vimeo="46239685"/><br>Beeple - Subspace (with autoplay)<br>
+<img src="http://spiritualtazer.com/images/xavi-thumbnail.png" class="blightbox" data-image="http://spiritualtazer.com/images/xavi-full.png"/><br>Art by Xavi<br>
+<img src="http://spiritualtazer.com/images/endo.png" class="blightbox" data-image="http://spiritualtazer.com/images/xavi-full.png" data-boxwidth="1024" data-boxheight="768"/><br>Image with custom height and width (this will cause scrolling if the image doesn't fit in the lightbox)<br>
 
 
 </body>
